@@ -26,7 +26,7 @@ public class VRControllerMonitor : MonoBehaviour {
 	}
 
     void DetectControllerChanges() {
-        Debug.Log("Checking controller changes");
+        //Debug.Log("Checking controller changes");
         string[] inputDevices = Input.GetJoystickNames();
 
         for (int deviceIndex = 0; deviceIndex < inputDevices.Length; deviceIndex++) {
@@ -38,8 +38,9 @@ public class VRControllerMonitor : MonoBehaviour {
                 if(!vrControllerIndices.Contains(deviceIndex)) {
                     int emptySlot = vrControllerIndices.IndexOf(INVALID_VR_CONTROLLER_INDEX);
 
-                    if (emptySlot >= 0)
+                    if (emptySlot >= 0) {
                         vrControllerIndices[emptySlot] = deviceIndex;
+                    }
                     else {
                         vrControllerIndices.Add(deviceIndex);
                         emptySlot = vrControllerIndices.Count - 1;
