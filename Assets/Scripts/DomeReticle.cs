@@ -16,13 +16,14 @@ public class DomeReticle : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update () {        
         RaycastHit hit;
 
-        if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100)) {
+        if (Physics.Raycast(trackedObj.transform.position, trackedObj.transform.forward, out hit, 100)) {
             hitPoint = hit.point;
             SetReticleToHitPoint(hit);
         }
+        
     }
 
     private void SetReticleToHitPoint(RaycastHit hit) {
